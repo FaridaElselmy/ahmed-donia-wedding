@@ -27,7 +27,7 @@ body{margin:0;min-height:100vh;color:var(--ink);font:400 1.1rem/1.5 "Cormorant G
 .eb{font:600 .7rem/1 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0}
 .hero{position:relative;text-align:center;padding:2.6rem 1.2rem 1.2rem;overflow:hidden}
 .hero .flora{position:absolute;right:-30px;top:-22px;width:150px;aspect-ratio:260/340;transform:rotate(8deg);opacity:.95;pointer-events:none}
-h1{font:400 clamp(3.2rem,15vw,4.6rem)/1.02 "Pinyon Script",cursive;margin:.9rem 0 0}
+h1{font:400 clamp(3.45rem,15vw,4.9rem)/1.07 "Pinyon Script",cursive;margin:.9rem 0 0;color:#493017;text-shadow:0 1px 0 rgba(255,252,241,.9),0 0 1px rgba(65,36,12,.55);-webkit-text-stroke:.32px rgba(58,35,14,.4)}
 .date{margin:.5rem 0 0;font-size:1.35rem;letter-spacing:.12em;color:var(--mute)}
 .orn{height:14px;margin:1rem auto .8rem;width:150px;background:linear-gradient(90deg,transparent,var(--gold) 40%,transparent) center/100% 1px no-repeat;position:relative}
 .orn::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:var(--gold);transform:translate(-50%,-50%) rotate(45deg)}
@@ -267,6 +267,8 @@ const refresh = async () => {
   } catch (error) {
     $('#banner').textContent = error.message || 'The album is unavailable. Please try again.';
     $('#banner').hidden = false;
+    // An unavailable album is not an empty album; avoid showing the wrong message.
+    $('#empty').hidden = true;
   }
 };
 $$('#tabs button').forEach((b,i)=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#tabs').style.setProperty('--i',i);feed.dataset.f=b.dataset.f});
