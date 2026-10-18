@@ -6,13 +6,18 @@
 <title>Moments · Ahmed &amp; Donia</title>
 <meta name="description" content="Share your photos, videos and notes from our wedding day.">
 <meta name="theme-color" content="#d9c69f">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Moments · Ahmed &amp; Donia">
+<meta property="og:url" content="https://example.invalid/album/">
 <meta property="og:description" content="Share your photos, videos and notes from our wedding day.">
-<meta property="og:image" content="https://ahmed-and-donia.netlify.app/og.jpg">
+<meta property="og:image" content="https://example.invalid/album-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Pinyon+Script&display=swap">
+<meta property="og:image:alt" content="Share wedding photos, videos and notes for Ahmed and Donia">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&family=Pinyon+Script&display=swap">
 <style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;font-display:swap;src:url('/assets/fonts/CormorantGaramond.ttf') format('truetype')}@font-face{font-family:'Pinyon Script';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/PinyonScript-Regular.ttf') format('truetype')}
 :root{--bg:#f4ecdc;--card:#fbf6ea;--ink:#4f3d27;--mute:#8a7556;--gold:#b08d4a;--gold2:#d8bb7a;--line:rgba(176,141,74,.3);--glass:rgba(251,246,234,.72);--sh:rgba(90,70,30,.28);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1812;--card:#2a2319;--ink:#f1e6cf;--mute:#b8a47f;--gold:#d8bb7a;--gold2:#b08d4a;--line:rgba(216,187,122,.3);--glass:rgba(42,35,25,.72);--sh:rgba(0,0,0,.5);color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#1d1812;--card:#2a2319;--ink:#f1e6cf;--mute:#b8a47f;--gold:#d8bb7a;--gold2:#b08d4a;--line:rgba(216,187,122,.3);--glass:rgba(42,35,25,.72);--sh:rgba(0,0,0,.5);color-scheme:dark}
@@ -87,6 +92,14 @@ textarea{resize:none;height:5rem}
 #lbx{position:absolute;right:1rem;top:calc(env(safe-area-inset-top,0px) + .8rem);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,250,238,.16);color:#fff;font-size:1.6rem}
 @media(prefers-reduced-motion:reduce){.snap::after{animation:none}.sheet,#lbc,.tabs i{transition:none}}
 @media(prefers-reduced-transparency:reduce){.dock,.tabs{background:var(--card);backdrop-filter:none;-webkit-backdrop-filter:none}}
+:root{--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;--script:'Pinyon Script',cursive}
+/* ---- film camera (copied from the Vercel album) ---- */
+:where(.film-camera) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;touch-action:manipulation}
+:where(.film-camera) button:disabled{opacity:.5}
+:where(.film-camera) p{margin:0}
+.film-camera{font-family:var(--sans);font-size:13px;line-height:normal}
+.film-camera [hidden]{display:none!important}
+.film-camera{padding:0;border:0;width:min(100vw,490px);height:min(100dvh,900px);max-width:100vw;max-height:100dvh;background:#191914;color:#eee5d2;overflow-y:auto;border-radius:0}.film-camera::backdrop{background:#161510ed}.camera-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px}.camera-top>span{font:30px var(--script);color:#c9b68d}.camera-top button{font-size:29px;color:#c9b68d;min-width:42px;min-height:40px}.camera-viewport{position:relative;width:min(calc(100% - 32px),45dvh);margin:0 auto;aspect-ratio:3/4;overflow:hidden;border:1px solid #827451;background:#0c0d0b}.camera-viewport>video{width:100%;height:100%;object-fit:cover;display:block}.camera-grid{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,transparent 33.1%,#ffffff16 33.3%,transparent 33.5%,transparent 66.4%,#ffffff16 66.6%,transparent 66.8%),linear-gradient(to bottom,transparent 33.1%,#ffffff16 33.3%,transparent 33.5%,transparent 66.4%,#ffffff16 66.6%,transparent 66.8%)}.camera-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;transition:opacity .12s}.camera-flash.flash{opacity:.8}.camera-countdown{position:absolute;inset:0;display:grid;place-items:center;font:100px var(--serif);color:#fff7e7;text-shadow:0 3px 10px #0005}.camera-frame-number{position:absolute;left:12px;bottom:14px;font:10px var(--sans);letter-spacing:1px;color:#dfc99d;text-shadow:0 1px 3px #000}.camera-record-time{position:absolute;right:12px;top:12px;font-size:11px;color:#f6c6b0;background:#19120fcc;padding:7px 10px;border-radius:2px}.camera-message{font:italic 16px var(--serif);line-height:1.4;color:#a89b7c;text-align:center;padding:13px 20px 0;min-height:43px}.camera-modes{display:flex;gap:26px;justify-content:center;margin:11px 0 14px}.camera-modes button{font-size:10px;color:#80765e;padding:7px 4px}.camera-modes button.active{color:#dbc292;border-bottom:1px solid #a9915d}.camera-controls{display:flex;align-items:center;justify-content:space-evenly;padding:0 12px}.camera-shutter{border:1px solid #d9c9a6;border-radius:50%;width:70px;height:70px;display:grid;place-items:center;padding:4px}.camera-shutter>span{display:block;width:58px;height:58px;border-radius:50%;background:#f2ead6;transition:all .2s}.camera-shutter.video-mode>span{background:#a7674b}.camera-shutter.recording>span{border-radius:6px;width:30px;height:30px;background:#b87957}.camera-timer,.camera-tone{font-size:10px;border:1px solid #554b35;min-width:53px;min-height:40px;border-radius:2px;color:#8e8060}.camera-timer.active,.camera-tone.active{color:#ead7b1;border-color:#b8a070}.camera-footnote{font:20px var(--script);text-align:center;color:#796c4e;padding:17px 0 max(16px,env(safe-area-inset-bottom))}.camera-offline{position:absolute;inset:0;background:#252219;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}.camera-offline p{font:27px var(--serif);margin-bottom:15px}.camera-offline span{font-size:11px;line-height:1.7;color:#ab9b7a;max-width:28ch}.camera-offline button{border:1px solid #b49b69;padding:14px 20px;margin-top:23px;font-size:10px;color:#d8c299}@media(max-height:740px){.camera-top{padding:8px 15px}.camera-viewport{width:min(calc(100% - 32px),41.25dvh)}.camera-top>span{font-size:26px}.camera-message{font-size:14px;min-height:35px;padding-top:9px}.camera-modes{margin:5px 0 8px}.camera-shutter{width:61px;height:61px}.camera-shutter>span{width:49px;height:49px}.camera-footnote{padding:10px 0}}
 </style>
 </head>
 <body>
@@ -112,7 +125,7 @@ textarea{resize:none;height:5rem}
   <p class="date">20.11.2026</p>
   <div class="orn"></div>
   <p class="stats" id="stats">Be the first to share a moment</p>
-  <p id="banner" hidden>Preview mode: moments stay on this device until the album is connected.</p>
+  <p id="banner" hidden>The album is temporarily unavailable. Please try again in a moment.</p>
 </header>
 <nav class="tabs" id="tabs"><i></i><button class="on" data-f="all">All</button><button data-f="photo">Photos</button><button data-f="video">Videos</button><button data-f="note">Notes</button></nav>
 <main id="feed" data-f="all"></main>
@@ -132,7 +145,7 @@ textarea{resize:none;height:5rem}
   <div class="sheet" id="sAct" role="dialog" aria-label="Add a moment">
     <h2>Add a moment</h2>
     <button class="act" id="aPhoto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.6"/></svg><span>Take a photo</span></button>
-    <button class="act" id="aVideo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg><span>Record a video<small>Up to 50 MB, about 20 to 30 seconds</small></span></button>
+    <button class="act" id="aVideo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg><span>Record a video<small>Up to 150 MB per video</small></span></button>
     <button class="act" id="aLib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg><span>Choose from your library<small>Pick several at once</small></span></button>
   </div>
   <div class="sheet" id="sCompose" role="dialog" aria-label="Share">
@@ -157,24 +170,55 @@ textarea{resize:none;height:5rem}
 </div>
 <div class="lb" id="lb"><button id="lbx" aria-label="Close">×</button><div id="lbc"></div><p id="lbn"></p></div>
 
-<script>
+<script type="module">
+import {createCamera} from '/assets/camera.js';
 (()=>{
-/* ---- SETUP: paste your Supabase values here (see README) ---- */
-const CFG={url:'https://sdeaghryzwpjblfbcose.supabase.co',key:'sb_publishable_fTZ1iPYYaRGeRlY5tN6xFw_b9rcpKMg',bucket:'moments'};
-/* ------------------------------------------------------------- */
-const live=!!(CFG.url&&CFG.key),host=location.hash==='#host'||/[?&]host/.test(location.search);
+/* All storage keys remain on Vercel. No guest needs an account. */
+const host=location.hash==='#host'||/[?&]host/.test(location.search);
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const MAXV=50*1024*1024,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const MAXV=150*1024*1024,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const feed=$('#feed'),ui=$('#ui');
 let rows=[],files=[],els=new Map();
 
-/* ---- backend (Supabase REST + Storage, no library) ---- */
-const H=()=>{const h={apikey:CFG.key};if(CFG.key.startsWith('eyJ'))h.Authorization='Bearer '+CFG.key;return h};
-const load=async()=>{const r=await fetch(`${CFG.url}/rest/v1/moments?select=*&order=created_at.desc&limit=400`,{headers:H()});return r.ok?r.json():rows};
-const insert=row=>fetch(`${CFG.url}/rest/v1/moments`,{method:'POST',headers:{...H(),'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});
-const put=(path,blob,type,onp)=>new Promise((ok,no)=>{const x=new XMLHttpRequest();x.open('POST',`${CFG.url}/storage/v1/object/${CFG.bucket}/${path}`);const h=H();for(const k in h)x.setRequestHeader(k,h[k]);x.setRequestHeader('Content-Type',type);x.setRequestHeader('x-upsert','false');if(onp)x.upload.onprogress=e=>e.lengthComputable&&onp(e.loaded/e.total);x.onload=()=>x.status<300?ok():no(new Error('Upload failed ('+x.status+'). Please try again.'));x.onerror=()=>no(new Error('No connection. Please try again.'));x.send(blob)});
-const pub=p=>`${CFG.url}/storage/v1/object/public/${CFG.bucket}/${p}`;
-const src=r=>r.local||pub(r.path),tsrc=r=>r.localThumb||(r.thumb?pub(r.thumb):null);
+/* ---- Vercel API (Backblaze B2 files + Supabase text records) ---- */
+async function jsonCall(path, options={}) {
+  let response;
+  try { response = await fetch(path, options); }
+  catch { throw new Error('No connection. Please check your internet and try again.'); }
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || 'The album could not connect. Please try again.');
+  return data;
+}
+const load = () => jsonCall('/api/moments');
+const insert = row => jsonCall('/api/moments', {
+  method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(row)
+});
+const signUpload = (blob, type) => jsonCall('/api/upload-url', {
+  method: 'POST', headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({contentType: type, size: blob.size})
+});
+// Upload directly to Backblaze. No file ever passes through Vercel's request-size limit.
+function sendFile(uploadUrl, blob, type, onProgress) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', uploadUrl);
+    xhr.setRequestHeader('Content-Type', type);
+    xhr.upload.onprogress = event => {
+      if (event.lengthComputable && onProgress) onProgress(event.loaded / event.total);
+    };
+    xhr.onload = () => xhr.status >= 200 && xhr.status < 300
+      ? resolve() : reject(new Error(`Media upload failed (${xhr.status}). Please try again.`));
+    xhr.onerror = () => reject(new Error('Upload blocked or connection lost. Ask the couple to check the Backblaze CORS setup.'));
+    xhr.send(blob);
+  });
+}
+async function put(blob, type, onProgress) {
+  const ticket = await signUpload(blob, type);
+  await sendFile(ticket.uploadUrl, blob, ticket.contentType, onProgress);
+  return ticket.key;
+}
+const src = r => r.local || r.url || '';
+const tsrc = r => r.localThumb || r.thumbUrl || null;
 
 /* ---- feed ---- */
 function card(r){
@@ -185,7 +229,7 @@ function card(r){
     const t=tsrc(r)||(r.kind==='photo'?src(r):null);
     if(t){const i=new Image();i.src=t;i.alt='';i.loading='lazy';w.append(i)}
     if(r.kind==='video')w.insertAdjacentHTML('beforeend','<span class="play"></span>');
-    w.onclick=()=>openLb(r.id);a.append(w);
+    w.onclick=()=>openLb(r.id);a.append(w);a.dataset.signedAt=String(Date.now());
     if(r.text){const p=document.createElement('p');p.className='cap';p.textContent=r.text;a.append(p)}
     const q=document.createElement('p');q.className='who';a.append(q);
   }
@@ -201,7 +245,30 @@ function draw(){
   const g=new Set(rows.map(r=>r.name)).size;
   $('#stats').textContent=rows.length?`${rows.length} moment${rows.length>1?'s':''} from ${g} guest${g>1?'s':''}`:'Be the first to share a moment';
 }
-const refresh=async()=>{try{rows=await load();draw()}catch(e){}};
+const refresh = async () => {
+  try {
+    const next = await load();
+    rows = next;
+    // Existing thumbnails can be kept while a signed link is valid;
+    // refresh them after 90 minutes (links are valid for 120 minutes).
+    const now = Date.now();
+    for (const r of rows) {
+      const e = els.get(r.id);
+      if (!e || r.kind === 'note') continue;
+      if (!e.dataset.signedAt || now - Number(e.dataset.signedAt) > 90 * 60 * 1000) {
+        const im = e.querySelector('.ph img');
+        const url = tsrc(r) || (r.kind === 'photo' ? src(r) : null);
+        if (im && url) im.src = url;
+        e.dataset.signedAt = String(now);
+      }
+    }
+    draw();
+    $('#banner').hidden = true;
+  } catch (error) {
+    $('#banner').textContent = error.message || 'The album is unavailable. Please try again.';
+    $('#banner').hidden = false;
+  }
+};
 $$('#tabs button').forEach((b,i)=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#tabs').style.setProperty('--i',i);feed.dataset.f=b.dataset.f});
 
 /* ---- sheets ---- */
@@ -209,8 +276,9 @@ const sheet=id=>{$$('.sheet').forEach(s=>s.classList.toggle('on',s.id===id));ui.
 const closeAll=()=>{ui.classList.remove('open');$$('.sheet').forEach(s=>s.classList.remove('on'))};
 $('#veil').onclick=closeAll;
 $('#bSnap').onclick=()=>sheet('sAct');
-$('#aPhoto').onclick=()=>{closeAll();$('#fPhoto').click()};
-$('#aVideo').onclick=()=>{closeAll();$('#fVideo').click()};
+const camera=createCamera({onCapture:f=>compose([f]),onNative:k=>$(k==='photo'?'#fPhoto':'#fVideo').click(),getRemaining:()=>null});
+$('#aPhoto').onclick=()=>{closeAll();camera.open('photo')};
+$('#aVideo').onclick=()=>{closeAll();camera.open('video')};
 $('#aLib').onclick=()=>{closeAll();$('#fLib').click()};
 $('#bNote').onclick=()=>compose([]);
 ['#fPhoto','#fVideo','#fLib'].forEach(s=>$(s).onchange=e=>{const f=[...e.target.files];e.target.value='';if(f.length)compose(f)});
@@ -226,9 +294,48 @@ function compose(f){
 $('#cCancel').onclick=()=>{closeAll();files=[];$('#msg').value=''};
 
 /* ---- media prep ---- */
-const bmp=f=>createImageBitmap(f,{imageOrientation:'from-image'});
-function scale(b,max,q){const s=Math.min(1,max/Math.max(b.width,b.height)),c=document.createElement('canvas');c.width=Math.round(b.width*s);c.height=Math.round(b.height*s);c.getContext('2d').drawImage(b,0,0,c.width,c.height);return new Promise(r=>c.toBlob(r,'image/jpeg',q))}
-function vidThumb(f){return new Promise(res=>{const v=document.createElement('video');v.muted=true;v.playsInline=true;v.preload='metadata';v.src=URL.createObjectURL(f);const fail=()=>res(null);v.onerror=fail;setTimeout(fail,7000);v.onloadedmetadata=()=>{v.currentTime=Math.min(.5,(v.duration||1)/2)};v.onseeked=()=>{const s=Math.min(1,520/Math.max(v.videoWidth,v.videoHeight)),c=document.createElement('canvas');c.width=Math.round(v.videoWidth*s);c.height=Math.round(v.videoHeight*s);c.getContext('2d').drawImage(v,0,0,c.width,c.height);c.toBlob(b=>res({blob:b,ratio:v.videoWidth/v.videoHeight}),'image/jpeg',.7)}})}
+async function bmp(file) {
+  if (typeof createImageBitmap === 'function') {
+    try { return await createImageBitmap(file, { imageOrientation: 'from-image' }); } catch {}
+  }
+  const uri = URL.createObjectURL(file);
+  return new Promise((resolve,reject) => {
+    const image = new Image();
+    image.onload = () => { URL.revokeObjectURL(uri); resolve(image); };
+    image.onerror = () => { URL.revokeObjectURL(uri); reject(new Error('Cannot read this photo. Try exporting it as JPEG.')); };
+    image.src = uri;
+  });
+}
+function scale(b,max,q){const s=Math.min(1,max/Math.max(b.width,b.height)),c=document.createElement('canvas');c.width=Math.round(b.width*s);c.height=Math.round(b.height*s);c.getContext('2d').drawImage(b,0,0,c.width,c.height);return new Promise((resolve,reject)=>c.toBlob(x=>x?resolve(x):reject(new Error('Could not prepare your photo.')),'image/jpeg',q))}
+function vidThumb(f){
+  return new Promise(resolve=>{
+    const url=URL.createObjectURL(f),v=document.createElement('video');
+    v.muted=true;v.playsInline=true;v.preload='metadata';
+    let settled=false;
+    const finish=result=>{
+      if(settled)return;settled=true;clearTimeout(timer);
+      v.removeAttribute('src');v.load();URL.revokeObjectURL(url);resolve(result);
+    };
+    const timer=setTimeout(()=>finish(null),7000);
+    v.onerror=()=>finish(null);
+    v.onloadedmetadata=()=>{
+      if(!v.videoWidth||!v.videoHeight)return finish(null);
+      try{v.currentTime=Math.min(.5,((Number.isFinite(v.duration)?v.duration:1)||1)/2)}
+      catch{finish(null)}
+    };
+    v.onseeked=()=>{
+      const factor=Math.min(1,520/Math.max(v.videoWidth,v.videoHeight));
+      const c=document.createElement('canvas');
+      c.width=Math.max(1,Math.round(v.videoWidth*factor));
+      c.height=Math.max(1,Math.round(v.videoHeight*factor));
+      try{
+        c.getContext('2d').drawImage(v,0,0,c.width,c.height);
+        c.toBlob(blob=>finish(blob?{blob,ratio:v.videoWidth/v.videoHeight}:null),'image/jpeg',.7);
+      }catch{finish(null)}
+    };
+    v.src=url;
+  });
+}
 
 $('#cPost').onclick=async()=>{
   const btn=$('#cPost'),err=$('#err'),name=$('#name').value.trim()||'A guest',text=$('#msg').value.trim();
@@ -240,24 +347,29 @@ $('#cPost').onclick=async()=>{
     for(const f of list){
       const row={name,text:done===0?text:'',kind:'note',path:null,thumb:null,ratio:null};
       if(f){
-        const isV=f.type.startsWith('video');
-        if(isV&&f.size>MAXV)throw new Error('A video is over 50 MB. Please try a shorter clip.');
-        let main,thumb,ratio;
-        if(isV){const t=await vidThumb(f);main=f;thumb=t&&t.blob;ratio=t?t.ratio:.5625}
-        else{const b=await bmp(f);main=await scale(b,1600,.82);thumb=await scale(b,520,.7);ratio=b.width/b.height}
-        const id=Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-        const ext=isV?((f.name.split('.').pop()||'mp4').toLowerCase().replace(/[^a-z0-9]/g,'')||'mp4'):'jpg';
-        Object.assign(row,{kind:isV?'video':'photo',ratio,path:`${id}.${ext}`,thumb:thumb?`${id}-t.jpg`:null});
-        if(live){await put(row.path,main,isV?(f.type||'video/mp4'):'image/jpeg',x=>prog((done+x*.95)/list.length));if(thumb)await put(row.thumb,thumb,'image/jpeg')}
-        else{row.local=URL.createObjectURL(main);row.localThumb=thumb?URL.createObjectURL(thumb):null}
+        const isV=f.type.startsWith('video/')||/\.(mp4|mov|webm|m4v|3gp)$/i.test(f.name);
+        if(isV&&f.size>MAXV)throw new Error('This video is over 150 MB. Please choose a shorter clip.');
+        let main,thumb,ratio,type;
+        if(isV){
+          const t=await vidThumb(f);main=f;thumb=t?.blob||null;ratio=t?.ratio||.5625;
+          const ext=(f.name.split('.').pop()||'').toLowerCase();
+          type=f.type||({mov:'video/quicktime',mp4:'video/mp4',webm:'video/webm',m4v:'video/x-m4v','3gp':'video/3gpp'}[ext]||'video/mp4');
+        } else {
+          const b=await bmp(f);
+          try{ main=await scale(b,1600,.82);thumb=await scale(b,520,.7);ratio=b.width/b.height; }
+          finally{ if(typeof b.close==='function')b.close(); }
+          type='image/jpeg';
+        }
+        Object.assign(row,{kind:isV?'video':'photo',ratio});
+        row.path=await put(main,type,x=>prog((done+x*.90)/list.length));
+        if(thumb)row.thumb=await put(thumb,'image/jpeg',x=>prog((done+.90+x*.05)/list.length));
       }
-      if(live){const r=await insert(row);if(!r.ok)throw new Error('Could not save. Please try again.')}
-      else{row.id='l'+Date.now()+Math.random();row.created_at=new Date().toISOString();rows.unshift(row)}
+      await insert(row);
       done++;prog(done/list.length);
     }
     try{localStorage.setItem('guest-name',name)}catch(e){}
-    $('#msg').value='';files=[];closeAll();live?await refresh():draw();
-  }catch(e){err.textContent=(e&&e.message&&e.message.length<90)?e.message:'That did not go through. Please try again.'}
+    $('#msg').value='';files=[];closeAll();await refresh();
+  }catch(e){err.textContent=(e&&e.message&&e.message.length<170)?e.message:'That did not go through. Please try again.'}
   btn.disabled=false;btn.textContent='Post';
 };
 
@@ -351,12 +463,9 @@ $('#rgo').onclick=async()=>{
 };
 
 /* ---- start ---- */
-if(live){refresh();setInterval(()=>{if(!document.hidden&&!ui.classList.contains('open'))refresh()},12000)}
-else{
-  $('#banner').hidden=false;
-  rows=[{id:'d1',kind:'note',name:'Mariam',text:'Congratulations! We cannot wait to celebrate with you both.',created_at:''},{id:'d2',kind:'note',name:'Omar',text:'Wishing you a lifetime of love and laughter.',created_at:''}];
-  draw();
-}
+refresh();
+setInterval(()=>{if(!document.hidden&&!ui.classList.contains('open'))refresh()},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!ui.classList.contains('open'))refresh()});
 })();
 </script>
 </body>
