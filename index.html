@@ -39,7 +39,7 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .envelope-florals{position:absolute;z-index:7;width:clamp(170px,30vw,400px);height:auto;right:-3%;top:0;pointer-events:none;filter:drop-shadow(0 8px 8px #6d54211a)}
 .glass .mini{position:absolute;right:-26px;top:-46px;width:130px;height:auto;pointer-events:none;z-index:-1;opacity:.85;transform:rotate(8deg)}
 .glass{isolation:isolate}
-/* Quran verse inside the letter — Surah An-Naba 78:8 */
+/* Quran verse shown once in the original letter position */
 .verse{margin:0 auto .95rem;max-width:92%;direction:rtl;text-align:center}
 .verse .orn{display:block;width:84px;height:10px;margin:0 auto .7rem;background:linear-gradient(90deg,transparent,#c9ad6c 35%,#c9ad6c 65%,transparent) center/100% 1px no-repeat;position:relative}
 .verse .orn::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:#c9ad6c;transform:translate(-50%,-50%) rotate(45deg)}
@@ -103,13 +103,29 @@ footer{text-align:center;padding:3.6rem 1rem 0}
     .rv{transform:none;transition:opacity .4s}
 }
 @media (prefers-reduced-transparency:reduce){.glass{background:var(--card);backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+/* Subtle contrast improvements only: original straight gold lace and envelope remain unchanged. */
+.front .txt{z-index:2}
+.front .txt > .eb{
+  color:#533b22;
+  text-shadow:0 1px 0 rgba(255,247,224,.95),0 0 3px rgba(241,226,189,.98),0 0 6px rgba(234,215,174,.9);
+}
+.front .txt .names{
+  text-shadow:0 1px 0 #fff1d1,0 0 3px rgba(239,220,183,.96),0 0 5px rgba(239,220,183,.9);
+}
+@media(max-width:600px){
+  .stage .txt{top:28%;padding:0 .45rem}
+  .stage .txt > .eb:first-child{font-size:clamp(.91rem,3.45vw,1.03rem);letter-spacing:.14em;line-height:1.24}
+  .stage .txt .wedding-line{font-size:clamp(.89rem,3.35vw,1.02rem);letter-spacing:.115em;line-height:1.28;max-width:96%}
+  .stage .txt .names{margin:.58rem 0 .16rem}
+}
 </style>
 </head>
 <body>
 <section class="stage" id="stage" aria-label="Wedding invitation envelope">
   <div class="paper"></div>
   <article class="letter" aria-hidden="true">
-    <figure class="verse" lang="ar" dir="rtl" aria-label="سورة النبأ، الآية الثامنة"><span class="orn" aria-hidden="true"></span><q>وَخَلَقْنَاكُمْ أَزْوَاجًا</q><cite>سورة النبأ · ٨</cite></figure>
+    <figure class="verse" lang="ar" dir="rtl"><span class="orn" aria-hidden="true"></span><q>وَخَلَقْنَاكُمْ أَزْوَاجًا</q></figure>
     <p class="eb">Save the date</p><p class="dt">20.11.2026</p>
   </article>
   <svg class="pockets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
