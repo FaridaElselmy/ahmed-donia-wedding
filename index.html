@@ -64,32 +64,42 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .front .tri{background:linear-gradient(170deg,#eadcbb,#d8c49a)}
 .back .tri{background:linear-gradient(#f6eed9,#e6d4a8)}
 .lace polyline{fill:none;vector-effect:non-scaling-stroke}
-/* Keep invitation lettering completely inside the flap's triangular borders. */
-.txt{position:absolute;z-index:1;top:22%;left:50%;width:84%;transform:translateX(-50%);text-align:center;color:var(--env-ink)}
-.txt .invite-line,
-.txt .wedding-line{
+/* Envelope lettering: large, readable, and visually separated from the gold V borders. */
+.txt{position:absolute;z-index:2;top:19%;left:50%;width:94%;transform:translateX(-50%);text-align:center;color:var(--env-ink);isolation:isolate}
+/* A softly feathered area gently fades the gold lines behind the lettering,
+   instead of shrinking the words to squeeze between the diagonal borders. */
+.txt::before{content:"";position:absolute;z-index:-1;inset:-1rem -1rem;
+  background:linear-gradient(170deg,#e8dab9,#decca5);
+  -webkit-mask-image:radial-gradient(ellipse 75% 80% at center,#000 57%,transparent 100%);
+  mask-image:radial-gradient(ellipse 75% 80% at center,#000 57%,transparent 100%);
+  pointer-events:none}
+.txt .invite-line,.txt .wedding-line{
   margin:0 auto;
-  font:600 clamp(1.12rem,2.2vw,1.4rem)/1.18 "Cormorant Garamond",Georgia,serif;
-  letter-spacing:.035em;
-  text-transform:none;
-  color:#604729;
-  text-shadow:0 1px 0 rgba(255,250,238,.82);
+  font:600 clamp(1.3rem,2.65vw,1.75rem)/1.12 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:.01em;text-transform:none;color:#553b21;
+  text-shadow:0 1px 0 #f4e8cb,0 0 5px #e9d9b7;
 }
-/* Retain the original Pinyon calligraphy for the names. */
-.names{font:400 clamp(3rem,11vw,4.6rem)/1.12 "Pinyon Script",cursive;color:#674416;margin:.5rem 0 .1rem;text-shadow:0 1px 0 #fff4d7,0 0 2px rgba(61,36,12,.38);-webkit-text-stroke:.2px rgba(91,54,17,.32);white-space:nowrap}
+/* Keep the same original calligraphy, but make the names prominent. */
+.names{font:400 clamp(3.5rem,11vw,4.7rem)/1.08 "Pinyon Script",cursive;color:#674416;
+  margin:.36rem auto .17rem;white-space:nowrap;
+  text-shadow:0 1px 0 #fff4d7,0 0 5px #e9d9b7,0 0 9px #e9d9b7;
+  -webkit-text-stroke:.22px rgba(91,54,17,.35)}
 .venue-title{font:500 clamp(1.55rem,4.5vw,2.05rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:-.01em;color:var(--ink);margin:1rem auto 0;max-width:100%}
 .venue-city{font:400 clamp(1.8rem,6vw,2.35rem)/1.1 "Pinyon Script",cursive;letter-spacing:normal;text-transform:none;color:var(--ink);margin:.25rem auto 0}
-/* On phones, start the lettering higher: lace lines converge as they descend. */
+/* On iPhones, enlarge both invitation sentences. The feathered background
+   keeps the diagonal lace from visually crossing the lettering. */
 @media (max-width:600px){
-  .txt{top:12%;width:90%}
-  .txt .invite-line,
-  .txt .wedding-line{font-size:clamp(.99rem,4vw,1.15rem);line-height:1.1;letter-spacing:.015em}
-  .txt .names{font-size:clamp(2.45rem,10.2vw,3.25rem);line-height:1.15;margin:.4rem 0 .12rem;letter-spacing:-.015em}
+  .txt{top:15%;width:96%}
+  .txt::before{inset:-1rem -.45rem;
+    -webkit-mask-image:radial-gradient(ellipse 85% 83% at center,#000 60%,transparent 100%);
+    mask-image:radial-gradient(ellipse 85% 83% at center,#000 60%,transparent 100%)}
+  .txt .invite-line,.txt .wedding-line{font-size:clamp(1.33rem,5.85vw,1.62rem);line-height:1.14;letter-spacing:0}
+  .txt .names{font-size:clamp(3.1rem,13.6vw,3.95rem);line-height:1.15;margin:.32rem auto .18rem;letter-spacing:-.015em}
 }
 @media (max-width:350px){
-  .txt{top:10%}
-  .txt .invite-line,.txt .wedding-line{font-size:.91rem}
-  .txt .names{font-size:2.15rem}
+  .txt{top:13%;width:98%}
+  .txt .invite-line,.txt .wedding-line{font-size:clamp(1.18rem,6vw,1.34rem)}
+  .txt .names{font-size:clamp(2.7rem,13.25vw,3rem)}
 }
 .seal{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);border:0;background:none;padding:0;cursor:pointer;filter:drop-shadow(0 6px 8px rgba(70,50,20,.35));transition:transform .1s ease-out;touch-action:none}
 .seal:active{transform:translate(-50%,50%) scale(.96)}
