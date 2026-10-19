@@ -49,7 +49,7 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .verse-section .verse q{font-size:clamp(1.55rem,6vw,2rem);line-height:1.8}
 .verse q::before{content:"\FD3F\00A0";color:#b08d4a}.verse q::after{content:"\00A0\FD3E";color:#b08d4a}
 @media(max-width:600px){
-  .envelope-florals{width:min(150px,40vw);right:-34px;top:-26px}
+  .envelope-florals{width:min(132px,35vw);right:-43px;top:-39px}
   .letter{top:5%;left:9%;right:9%;padding-top:2.9rem}
   .verse{max-width:95%;margin-bottom:.65rem}.verse .orn{margin-bottom:.5rem}
   .verse q{font-size:clamp(1.35rem,5.7vw,1.85rem);line-height:1.75}
@@ -63,41 +63,35 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .tri{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 100%)}
 .front .tri{background:linear-gradient(170deg,#eadcbb,#d8c49a)}
 .back .tri{background:linear-gradient(#f6eed9,#e6d4a8)}
-.lace polyline{fill:none;vector-effect:non-scaling-stroke}
-/* Envelope lettering: large, readable, and visually separated from the gold V borders. */
-.txt{position:absolute;z-index:2;top:19%;left:50%;width:94%;transform:translateX(-50%);text-align:center;color:var(--env-ink);isolation:isolate}
-/* A softly feathered area gently fades the gold lines behind the lettering,
-   instead of shrinking the words to squeeze between the diagonal borders. */
-.txt::before{content:"";position:absolute;z-index:-1;inset:-1rem -1rem;
-  background:linear-gradient(170deg,#e8dab9,#decca5);
-  -webkit-mask-image:radial-gradient(ellipse 75% 80% at center,#000 57%,transparent 100%);
-  mask-image:radial-gradient(ellipse 75% 80% at center,#000 57%,transparent 100%);
-  pointer-events:none}
+.lace polyline,.lace path{fill:none;vector-effect:non-scaling-stroke}
+.lace .mobile-border{display:none}
+@media(max-width:600px){.lace .desktop-border{display:none}.lace .mobile-border{display:block}}
+/* Keep the text large and let the gold trim curve around it on phones.
+   No background panel is placed behind the lettering. */
+.txt{position:absolute;z-index:2;top:19%;left:50%;width:94%;transform:translateX(-50%);text-align:center;color:var(--env-ink)}
+/* Lettering sits directly on the original paper: no opaque rectangle. */
 .txt .invite-line,.txt .wedding-line{
   margin:0 auto;
   font:600 clamp(1.3rem,2.65vw,1.75rem)/1.12 "Cormorant Garamond",Georgia,serif;
-  letter-spacing:.01em;text-transform:none;color:#553b21;
-  text-shadow:0 1px 0 #f4e8cb,0 0 5px #e9d9b7;
+  letter-spacing:.01em;text-transform:none;color:#513b25;
+  text-shadow:0 1px 0 #f4e8cb,0 0 3px #e9d9b7;
 }
 /* Keep the same original calligraphy, but make the names prominent. */
 .names{font:400 clamp(3.5rem,11vw,4.7rem)/1.08 "Pinyon Script",cursive;color:#674416;
   margin:.36rem auto .17rem;white-space:nowrap;
-  text-shadow:0 1px 0 #fff4d7,0 0 5px #e9d9b7,0 0 9px #e9d9b7;
+  text-shadow:0 1px 0 #fff4d7,0 0 3px #e9d9b7,0 0 9px #e9d9b7;
   -webkit-text-stroke:.22px rgba(91,54,17,.35)}
 .venue-title{font:500 clamp(1.55rem,4.5vw,2.05rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:-.01em;color:var(--ink);margin:1rem auto 0;max-width:100%}
 .venue-city{font:400 clamp(1.8rem,6vw,2.35rem)/1.1 "Pinyon Script",cursive;letter-spacing:normal;text-transform:none;color:var(--ink);margin:.25rem auto 0}
-/* On iPhones, enlarge both invitation sentences. The feathered background
-   keeps the diagonal lace from visually crossing the lettering. */
+/* On phones, maintain large type and leave a clear gap from the gold trim. */
 @media (max-width:600px){
-  .txt{top:15%;width:96%}
-  .txt::before{inset:-1rem -.45rem;
-    -webkit-mask-image:radial-gradient(ellipse 85% 83% at center,#000 60%,transparent 100%);
-    mask-image:radial-gradient(ellipse 85% 83% at center,#000 60%,transparent 100%)}
+  .txt{top:19%;width:96%}
+
   .txt .invite-line,.txt .wedding-line{font-size:clamp(1.33rem,5.85vw,1.62rem);line-height:1.14;letter-spacing:0}
   .txt .names{font-size:clamp(3.1rem,13.6vw,3.95rem);line-height:1.15;margin:.32rem auto .18rem;letter-spacing:-.015em}
 }
 @media (max-width:350px){
-  .txt{top:13%;width:98%}
+  .txt{top:17%;width:98%}
   .txt .invite-line,.txt .wedding-line{font-size:clamp(1.18rem,6vw,1.34rem)}
   .txt .names{font-size:clamp(2.7rem,13.25vw,3rem)}
 }
@@ -139,10 +133,6 @@ footer{text-align:center;padding:3.6rem 1rem 0}
 <section class="stage" id="stage" aria-label="Wedding invitation envelope">
   <div class="paper"></div>
   <article class="letter" aria-hidden="true">
-    <figure class="verse" lang="ar" dir="rtl">
-      <span class="orn" aria-hidden="true"></span>
-      <q>وَخَلَقْنَاكُمْ أَزْوَاجًا</q>
-    </figure>
     <p class="eb">Save the date</p><p class="dt">20.11.2026</p>
   </article>
   <svg class="pockets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -155,9 +145,16 @@ footer{text-align:center;padding:3.6rem 1rem 0}
     <div class="face front">
       <div class="tri"></div>
       <svg class="lace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <polyline points="0,0 50,100 100,0" stroke="#b08d4a" stroke-width="1.5"/>
-        <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
-        <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
+        <g class="desktop-border">
+          <polyline points="0,0 50,100 100,0" stroke="#b08d4a" stroke-width="1.5"/>
+          <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+          <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
+        </g>
+        <g class="mobile-border">
+          <path d="M 0,0 C 0,30 4,51 50,100 C 96,51 100,30 100,0" stroke="#b08d4a" stroke-width="1.5"/>
+          <path d="M 0,0 C 0,32 4,49 50,97 C 96,49 100,32 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+          <path d="M 0,0 C 0,30 4,47 50,92 C 96,47 100,30 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
+        </g>
       </svg>
       <div class="txt">
         <p class="invite-line">We would like to invite you</p>
