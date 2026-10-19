@@ -9,8 +9,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="We Would Like to Invite You — Ahmed &amp; Donia">
 <meta property="og:description" content="Ahmed &amp; Donia · 20 November 2026 · 7:00 PM · Shorta Avenue, Lotus Hall, Alexandria. Open your invitation.">
-<meta property="og:url" content="https://ahmed-donia-wedding.vercel.app/">
-<meta property="og:image" content="https://ahmed-donia-wedding.vercel.app/og-invite-2026.jpg">
+<meta property="og:url" content="https://example.invalid/">
+<meta property="og:image" content="https://example.invalid/og-invite-2026.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Elegant beige-and-gold envelope invitation for Ahmed and Donia">
@@ -39,20 +39,20 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .envelope-florals{position:absolute;z-index:7;width:clamp(170px,30vw,400px);height:auto;right:-3%;top:0;pointer-events:none;filter:drop-shadow(0 8px 8px #6d54211a)}
 .glass .mini{position:absolute;right:-26px;top:-46px;width:130px;height:auto;pointer-events:none;z-index:-1;opacity:.85;transform:rotate(8deg)}
 .glass{isolation:isolate}
-/* Quranic verse, without the surah/ayah reference. */
+/* Quran verse inside the letter — Surah An-Naba 78:8 */
 .verse{margin:0 auto .95rem;max-width:92%;direction:rtl;text-align:center}
 .verse .orn{display:block;width:84px;height:10px;margin:0 auto .7rem;background:linear-gradient(90deg,transparent,#c9ad6c 35%,#c9ad6c 65%,transparent) center/100% 1px no-repeat;position:relative}
 .verse .orn::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;background:#c9ad6c;transform:translate(-50%,-50%) rotate(45deg)}
 .verse q{display:block;quotes:none;font:400 clamp(1.6rem,6vw,2.2rem)/1.75 "Amiri Quran","Amiri",serif;color:#8a6a30;text-wrap:balance}
-.verse-section{padding-top:2.6rem}
-.verse-section .verse{max-width:100%;margin:0 auto}
-.verse-section .verse q{font-size:clamp(1.55rem,6vw,2rem);line-height:1.8}
 .verse q::before{content:"\FD3F\00A0";color:#b08d4a}.verse q::after{content:"\00A0\FD3E";color:#b08d4a}
+.verse cite{display:block;margin-top:.2rem;font:400 .85rem/1.45 "Amiri Quran","Amiri",serif;font-style:normal;color:#9d824d;opacity:.95}
 @media(max-width:600px){
-  .envelope-florals{width:min(132px,35vw);right:-43px;top:-39px}
+  .envelope-florals{width:min(150px,40vw);right:-34px;top:-26px}
+  .stage .txt{top:30%}
   .letter{top:5%;left:9%;right:9%;padding-top:2.9rem}
   .verse{max-width:95%;margin-bottom:.65rem}.verse .orn{margin-bottom:.5rem}
   .verse q{font-size:clamp(1.35rem,5.7vw,1.85rem);line-height:1.75}
+  .verse cite{font-size:.78rem}
   .letter .eb{font-size:.68rem}
   .letter .dt{font-size:min(1.9rem,4.8svh);margin-top:.35rem}
 }
@@ -63,38 +63,14 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 .tri{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 100%)}
 .front .tri{background:linear-gradient(170deg,#eadcbb,#d8c49a)}
 .back .tri{background:linear-gradient(#f6eed9,#e6d4a8)}
-.lace polyline,.lace path{fill:none;vector-effect:non-scaling-stroke}
-.lace .mobile-border{display:none}
-@media(max-width:600px){.lace .desktop-border{display:none}.lace .mobile-border{display:block}}
-/* Keep the text large and let the gold trim curve around it on phones.
-   No background panel is placed behind the lettering. */
-.txt{position:absolute;z-index:2;top:19%;left:50%;width:94%;transform:translateX(-50%);text-align:center;color:var(--env-ink)}
-/* Lettering sits directly on the original paper: no opaque rectangle. */
-.txt .invite-line,.txt .wedding-line{
-  margin:0 auto;
-  font:600 clamp(1.3rem,2.65vw,1.75rem)/1.12 "Cormorant Garamond",Georgia,serif;
-  letter-spacing:.01em;text-transform:none;color:#513b25;
-  text-shadow:0 1px 0 #f4e8cb,0 0 3px #e9d9b7;
-}
-/* Keep the same original calligraphy, but make the names prominent. */
-.names{font:400 clamp(3.5rem,11vw,4.7rem)/1.08 "Pinyon Script",cursive;color:#674416;
-  margin:.36rem auto .17rem;white-space:nowrap;
-  text-shadow:0 1px 0 #fff4d7,0 0 3px #e9d9b7,0 0 9px #e9d9b7;
-  -webkit-text-stroke:.22px rgba(91,54,17,.35)}
+.lace polyline{fill:none;vector-effect:non-scaling-stroke}
+.txt{position:absolute;z-index:1;left:0;right:0;top:25%;text-align:center;color:var(--env-ink)}
+/* Darker gold and a tiny outline make the original cursive legible on the envelope. */
+.names{font:400 clamp(3rem,11vw,4.6rem)/1.12 "Pinyon Script",cursive;color:#674416;margin:.6rem 0 .15rem;text-shadow:0 1px 0 #fff4d7,0 0 2px rgba(61,36,12,.5);-webkit-text-stroke:.38px rgba(91,54,17,.42)}
+.wedding-line{font-size:clamp(.8rem,1.65vw,.98rem);letter-spacing:.22em;line-height:1.5;margin:0 auto;max-width:90%}
 .venue-title{font:500 clamp(1.55rem,4.5vw,2.05rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:-.01em;color:var(--ink);margin:1rem auto 0;max-width:100%}
 .venue-city{font:400 clamp(1.8rem,6vw,2.35rem)/1.1 "Pinyon Script",cursive;letter-spacing:normal;text-transform:none;color:var(--ink);margin:.25rem auto 0}
-/* On phones, maintain large type and leave a clear gap from the gold trim. */
-@media (max-width:600px){
-  .txt{top:19%;width:96%}
-
-  .txt .invite-line,.txt .wedding-line{font-size:clamp(1.33rem,5.85vw,1.62rem);line-height:1.14;letter-spacing:0}
-  .txt .names{font-size:clamp(3.1rem,13.6vw,3.95rem);line-height:1.15;margin:.32rem auto .18rem;letter-spacing:-.015em}
-}
-@media (max-width:350px){
-  .txt{top:17%;width:98%}
-  .txt .invite-line,.txt .wedding-line{font-size:clamp(1.18rem,6vw,1.34rem)}
-  .txt .names{font-size:clamp(2.7rem,13.25vw,3rem)}
-}
+@media(max-width:600px){.stage .names{font-size:clamp(3.05rem,12vw,4rem)}.wedding-line{font-size:clamp(.74rem,2.5vw,.86rem);letter-spacing:.11em}}
 .seal{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);border:0;background:none;padding:0;cursor:pointer;filter:drop-shadow(0 6px 8px rgba(70,50,20,.35));transition:transform .1s ease-out;touch-action:none}
 .seal:active{transform:translate(-50%,50%) scale(.96)}
 .seal svg{display:block;width:clamp(76px,22vw,96px);height:auto}
@@ -133,6 +109,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
 <section class="stage" id="stage" aria-label="Wedding invitation envelope">
   <div class="paper"></div>
   <article class="letter" aria-hidden="true">
+    <figure class="verse" lang="ar" dir="rtl" aria-label="سورة النبأ، الآية الثامنة"><span class="orn" aria-hidden="true"></span><q>وَخَلَقْنَاكُمْ أَزْوَاجًا</q><cite>سورة النبأ · ٨</cite></figure>
     <p class="eb">Save the date</p><p class="dt">20.11.2026</p>
   </article>
   <svg class="pockets" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -145,22 +122,11 @@ footer{text-align:center;padding:3.6rem 1rem 0}
     <div class="face front">
       <div class="tri"></div>
       <svg class="lace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <g class="desktop-border">
-          <polyline points="0,0 50,100 100,0" stroke="#b08d4a" stroke-width="1.5"/>
-          <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
-          <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
-        </g>
-        <g class="mobile-border">
-          <path d="M 0,0 C 0,30 4,51 50,100 C 96,51 100,30 100,0" stroke="#b08d4a" stroke-width="1.5"/>
-          <path d="M 0,0 C 0,32 4,49 50,97 C 96,49 100,32 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
-          <path d="M 0,0 C 0,30 4,47 50,92 C 96,47 100,30 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
-        </g>
+        <polyline points="0,0 50,100 100,0" stroke="#b08d4a" stroke-width="1.5"/>
+        <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+        <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
       </svg>
-      <div class="txt">
-        <p class="invite-line">We would like to invite you</p>
-        <p class="names">Ahmed &amp; Donia</p>
-        <p class="wedding-line">to celebrate our wedding</p>
-      </div>
+      <div class="txt"><p class="eb">We would like to invite you</p><p class="names">Ahmed &amp; Donia</p><p class="eb wedding-line">to celebrate our wedding</p></div>
       <button class="seal" id="seal" aria-label="Open the invitation">
         <svg viewBox="0 0 90 112" aria-hidden="true">
           <defs>
@@ -188,12 +154,6 @@ footer{text-align:center;padding:3.6rem 1rem 0}
   <div class="peek"><p class="eb hint">Scroll</p></div>
   <div class="sheet">
     <section class="sec rv"><p class="eb">Save the date</p><h2 class="big">20.11.2026</h2><p class="at">at 7 pm</p></section>
-    <section class="sec rv verse-section" aria-label="Quranic verse">
-      <figure class="verse" lang="ar" dir="rtl">
-        <span class="orn" aria-hidden="true"></span>
-        <q>وَخَلَقْنَاكُمْ أَزْوَاجًا</q>
-      </figure>
-    </section>
     <section class="sec rv"><p class="eb">Meet us in</p><h2 class="venue-title">Shorta Avenue, Lotus Hall</h2>
       <address class="venue-city">Alexandria</address>
       <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Shorta%20Avenue%2C%20Lotus%20Hall%2C%20Alexandria%2C%20Egypt" target="_blank" rel="noopener">Open in Maps</a>
