@@ -112,8 +112,6 @@ footer{text-align:center;padding:3.6rem 1rem 0}
   letter-spacing:.015em;
   color:#563d22;
   text-shadow:0 1px 1px #f9edcf,0 0 6px #efdfbc,0 0 10px #efdfbc;
-  -webkit-text-stroke:2px #e8d7b2;
-  paint-order:stroke fill;
   max-width:95%;
   margin-inline:auto;
 }
@@ -126,7 +124,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
   .front .txt{top:12%;padding:0 7px}
   .front .txt .cover-intro{font-size:clamp(1.29rem,5vw,1.5rem);max-width:95%}
   .front .txt .cover-outro{font-size:clamp(1.26rem,4.85vw,1.47rem);max-width:95%}
-  .front .txt .names{font-size:clamp(3.05rem,12.4vw,4.1rem);margin:.3rem 0 .07rem;-webkit-text-stroke:1.2px #e4d1a9;paint-order:stroke fill}
+  .front .txt .names{font-size:clamp(3.05rem,12.4vw,4.1rem);margin:.3rem 0 .07rem}
   .footer-message{font-size:clamp(2.1rem,8vw,2.8rem);line-height:1.08}
   .footer-message span{display:block}
   .footer-message .signature{font-size:clamp(2.45rem,9.5vw,3.1rem)}
@@ -145,6 +143,21 @@ footer{text-align:center;padding:3.6rem 1rem 0}
 @media(max-width:600px){
   .stage .txt{padding:0 .45rem}
 }
+
+/* Small, airy botanical roses (the rest of the original envelope stays unchanged). */
+.cover-floral{position:absolute;display:block;height:auto;pointer-events:none;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 3px 3px rgba(80,58,24,.07))}
+.floral-upper{left:-5px;top:-8px;width:clamp(190px,20vw,265px);z-index:2;transform:none;opacity:.95}
+.floral-lower{right:-6px;bottom:8%;width:clamp(170px,17vw,210px);z-index:5;transform:none;opacity:.92}
+.front .txt{z-index:3}
+.stage .cta{z-index:8;text-shadow:0 1px 2px #f8e9c8,0 0 5px #e7d4af}
+@media(max-width:600px){
+ .floral-upper{left:-5px;top:-7px;width:190px;opacity:.96}
+ .floral-lower{right:-7px;bottom:14%;width:165px;opacity:.93}
+}
+@media(max-width:370px){
+ .floral-upper{width:158px;left:-6px;top:-7px}
+ .floral-lower{width:140px;right:-7px;bottom:14%}
+}
 </style>
 </head>
 <body>
@@ -159,10 +172,10 @@ footer{text-align:center;padding:3.6rem 1rem 0}
     <polygon points="100,22 50,58 100,100" fill="#dbc99f"/>
     <polygon points="0,100 50,58 100,100" fill="#e8d9b6"/>
   </svg>
-  <img class="envelope-florals" src="/assets/ivory-florals.png" alt="" aria-hidden="true">
   <div class="flap" id="flap">
     <div class="face front">
       <div class="tri"></div>
+      <img class="cover-floral floral-upper" src="/assets/ivory-roses-top.png" alt="" aria-hidden="true">
       <svg class="lace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <polyline points="0,0 50,100 100,0" stroke="#b08d4a" stroke-width="1.5"/>
         <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
@@ -188,6 +201,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
     </div>
     <div class="face back"><div class="tri"></div></div>
   </div>
+  <img class="cover-floral floral-lower" src="/assets/ivory-roses-bottom.png" alt="" aria-hidden="true">
   <p class="cta eb" id="cta" aria-hidden="true">Open the invitation</p>
   <div class="grain"></div>
 </section>
@@ -234,14 +248,47 @@ function spring(target,zeta,resp,v0){
   };
   raf=requestAnimationFrame(tick);
 }
-function done(){
-  if(opened)return;opened=true;
-  try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}
+// Treat the opened letter as one browser-history step. Safari/Chrome Back returns to the envelope.
+const historyFlag='ahmedDoniaInvitation';
+function showLetter(addHistory=true){
+  if(opened)return;
+  opened=true;
+  if(addHistory && history.state?.[historyFlag] !== 'open') {
+    history.pushState({...(history.state || {}),[historyFlag]:'open'},'', '#invitation');
+  }
   st.classList.add('open');
   main.hidden=false;
   requestAnimationFrame(()=>main.classList.add('show'));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+  }),{threshold:.15});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+function resetEnvelope(){
+  cancelAnimationFrame(raf);raf=0;v=0;drag=null;opened=false;
+  main.classList.remove('show');
+  main.hidden=true;
+  main.scrollTop=0;
+  document.querySelectorAll('.rv').forEach(el=>el.classList.remove('in'));
+  st.classList.remove('open');
+  p=0;render();
+}
+function done(){
+  if(opened)return;
+  try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}
+  showLetter(true);
+}
+window.addEventListener('popstate',()=>{
+  if(history.state?.[historyFlag] === 'open'){
+    cancelAnimationFrame(raf);p=1;render();showLetter(false);
+  } else if(opened) {
+    resetEnvelope();
+  }
+});
+// If someone opens a direct #invitation link, show the invitation without adding duplicate history entries.
+if(location.hash === '#invitation'){
+  history.replaceState({...(history.state || {}),[historyFlag]:'open'},'', location.href);
+  p=1;render();showLetter(false);
 }
 const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 const openNow=(vel=0)=>reduce.matches?(p=1,render(),done()):spring(1,.85,.55,vel);
