@@ -73,7 +73,7 @@ body{position:relative;color:var(--ink);font:400 1.15rem/1.55 "Cormorant Garamon
 @media(max-width:600px){.stage .names{font-size:clamp(3.05rem,12vw,4rem)}.wedding-line{font-size:clamp(.74rem,2.5vw,.86rem);letter-spacing:.11em}}
 .seal{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);border:0;background:none;padding:0;cursor:pointer;filter:drop-shadow(0 6px 8px rgba(70,50,20,.35));transition:transform .1s ease-out;touch-action:none}
 .seal:active{transform:translate(-50%,50%) scale(.96)}
-.seal svg{display:block;width:clamp(76px,22vw,96px);height:auto}
+.seal svg{display:block;width:clamp(92px,26vw,120px);height:auto}
 .cta{position:absolute;z-index:4;left:0;right:0;bottom:calc(10% + env(safe-area-inset-bottom,0px));text-align:center;color:var(--env-ink);opacity:var(--c,1)}
 .stage.open{pointer-events:none}
 
@@ -104,6 +104,35 @@ footer{text-align:center;padding:3.6rem 1rem 0}
 }
 @media (prefers-reduced-transparency:reduce){.glass{background:var(--card);backdrop-filter:none;-webkit-backdrop-filter:none}}
 
+/* New cover wording, keeping the original envelope lines and no rectangular overlay. */
+.front .txt .cover-intro,.front .txt .cover-outro{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:600;
+  text-transform:none;
+  letter-spacing:.015em;
+  color:#563d22;
+  text-shadow:0 1px 1px #f9edcf,0 0 6px #efdfbc,0 0 10px #efdfbc;
+  -webkit-text-stroke:2px #e8d7b2;
+  paint-order:stroke fill;
+  max-width:95%;
+  margin-inline:auto;
+}
+.front .txt .cover-intro{font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1.12}
+.front .txt .cover-outro{font-size:clamp(1.35rem,2.4vw,1.7rem);line-height:1.12}
+.cover-intro span{display:block}
+.footer-message .signature{white-space:nowrap}
+@media(max-width:600px){
+  /* Keep lettering above the converging gold lines on narrow screens. */
+  .front .txt{top:12%;padding:0 7px}
+  .front .txt .cover-intro{font-size:clamp(1.29rem,5vw,1.5rem);max-width:95%}
+  .front .txt .cover-outro{font-size:clamp(1.26rem,4.85vw,1.47rem);max-width:95%}
+  .front .txt .names{font-size:clamp(3.05rem,12.4vw,4.1rem);margin:.3rem 0 .07rem;-webkit-text-stroke:1.2px #e4d1a9;paint-order:stroke fill}
+  .footer-message{font-size:clamp(2.1rem,8vw,2.8rem);line-height:1.08}
+  .footer-message span{display:block}
+  .footer-message .signature{font-size:clamp(2.45rem,9.5vw,3.1rem)}
+}
+@media(min-width:601px){.front .txt{top:19%}}
+
 /* Subtle contrast improvements only: original straight gold lace and envelope remain unchanged. */
 .front .txt{z-index:2}
 .front .txt > .eb{
@@ -114,10 +143,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
   text-shadow:0 1px 0 #fff1d1,0 0 3px rgba(239,220,183,.96),0 0 5px rgba(239,220,183,.9);
 }
 @media(max-width:600px){
-  .stage .txt{top:28%;padding:0 .45rem}
-  .stage .txt > .eb:first-child{font-size:clamp(.91rem,3.45vw,1.03rem);letter-spacing:.14em;line-height:1.24}
-  .stage .txt .wedding-line{font-size:clamp(.89rem,3.35vw,1.02rem);letter-spacing:.115em;line-height:1.28;max-width:96%}
-  .stage .txt .names{margin:.58rem 0 .16rem}
+  .stage .txt{padding:0 .45rem}
 }
 </style>
 </head>
@@ -142,7 +168,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
         <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
         <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
       </svg>
-      <div class="txt"><p class="eb">We would like to invite you</p><p class="names">Ahmed &amp; Donia</p><p class="eb wedding-line">to celebrate our wedding</p></div>
+      <div class="txt"><p class="cover-intro">Together, and with great happiness,</p><p class="names">Ahmed and Donia</p><p class="cover-outro">invite you to celebrate their wedding</p></div>
       <button class="seal" id="seal" aria-label="Open the invitation">
         <svg viewBox="0 0 90 112" aria-hidden="true">
           <defs>
@@ -154,7 +180,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
             </filter>
           </defs>
           <ellipse cx="45" cy="56" rx="40" ry="51" fill="url(#sg)"/>
-          <image href="/assets/ad-monogram.png" x="10" y="21" width="70" height="70"
+          <image href="/assets/ad-monogram.png" x="5" y="15" width="80" height="82"
                  preserveAspectRatio="xMidYMid meet" clip-path="url(#monogram-clip)" filter="url(#gold-only)"/>
           <ellipse cx="45" cy="56" rx="33" ry="44" fill="none" stroke="#b08d4a" stroke-opacity=".55" stroke-width="1.2"/>
         </svg>
@@ -181,7 +207,7 @@ footer{text-align:center;padding:3.6rem 1rem 0}
       <p>Photos, videos and notes from our day, all in one album.</p>
       <a class="btn" href="album/">Open the guest album</a>
     </div></section>
-    <footer class="rv"><p class="script sm">With love, Ahmed &amp; Donia</p></footer>
+    <footer class="rv"><p class="script sm footer-message"><span>With love,</span> <span class="signature">Ahmed &amp; Donia</span></p></footer>
   </div>
 </main>
 
