@@ -126,12 +126,18 @@ footer{text-align:center;padding:3.6rem 1rem 0}
         <polyline points="0,0 50,97 100,0" stroke="#d3b36d" stroke-width="7" stroke-dasharray="0.1 7" stroke-linecap="round"/>
         <polyline points="0,0 50,92 100,0" stroke="#b08d4a" stroke-opacity=".5" stroke-width="1"/>
       </svg>
-      <div class="txt"><p class="eb">We would like to invite you</p><p class="names">Ahmed &amp; Donia</p><p class="eb wedding-line">Wedding Celebration</p></div>
+      <div class="txt"><p class="eb">We would like to invite you</p><p class="names">Ahmed &amp; Donia</p><p class="eb wedding-line">to celebrate our wedding</p></div>
       <button class="seal" id="seal" aria-label="Open the invitation">
-        <svg viewBox="0 0 90 112" aria-hidden="true"><defs><radialGradient id="sg" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".7" stop-color="#eadfc6"/><stop offset="1" stop-color="#cdb98c"/></radialGradient></defs>
-        <ellipse cx="45" cy="56" rx="40" ry="51" fill="url(#sg)"/>
-        <ellipse cx="45" cy="56" rx="33" ry="44" fill="none" stroke="#b08d4a" stroke-opacity=".55" stroke-width="1.2"/>
-        <text x="45" y="64" text-anchor="middle" font-family="Pinyon Script,cursive" font-size="30" fill="#a8843f">A&amp;D</text></svg>
+        <svg viewBox="0 0 90 112" aria-hidden="true">
+          <defs>
+            <radialGradient id="sg" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".7" stop-color="#eadfc6"/><stop offset="1" stop-color="#cdb98c"/></radialGradient>
+            <clipPath id="monogram-clip"><ellipse cx="45" cy="56" rx="32" ry="43"/></clipPath>
+          </defs>
+          <ellipse cx="45" cy="56" rx="40" ry="51" fill="url(#sg)"/>
+          <image href="/assets/ad-monogram.png" x="10" y="21" width="70" height="70"
+                 preserveAspectRatio="xMidYMid meet" clip-path="url(#monogram-clip)" style="mix-blend-mode:multiply"/>
+          <ellipse cx="45" cy="56" rx="33" ry="44" fill="none" stroke="#b08d4a" stroke-opacity=".55" stroke-width="1.2"/>
+        </svg>
       </button>
     </div>
     <div class="face back"><div class="tri"></div></div>
